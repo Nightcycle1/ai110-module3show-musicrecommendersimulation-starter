@@ -9,3 +9,13 @@ id,title,artist,genre,mood,energy,tempo_bpm,valence,danceability,acousticness
 8,Night Drive Loop,Neon Echo,synthwave,moody,0.75,110,0.49,0.73,0.22
 9,Focus Flow,LoRoom,lofi,focused,0.40,80,0.59,0.60,0.78
 10,Rooftop Lights,Indigo Parade,indie pop,happy,0.76,124,0.81,0.82,0.35
+11,Thunder Beast,Iron Maw,metal,aggressive,0.95,175,0.22,0.45,0.03
+12,Silent Tears,Echo Chamber,country,sad,0.31,68,0.19,0.38,0.88
+13,Neon Tokyo,Kitsune Beats,electronic,energetic,0.87,128,0.72,0.91,0.09
+14,Morning Meditation,Luna Flow,classical,calm,0.18,52,0.42,0.22,0.97
+15,Desert Highway,The Dusty Boots,folk,hopeful,0.54,96,0.76,0.61,0.83
+16,Club Paradox,DJ Phantom,house,euphoric,0.89,126,0.85,0.94,0.04
+17,Rainy Window,Solo Piano,classical,melancholic,0.22,64,0.28,0.31,0.95
+18,Street Fighter,Rival Beats,hip hop,confident,0.79,94,0.68,0.83,0.25
+19,Cyber Wasteland,NullSignal,industrial,angry,0.94,160,0.16,0.52,0.02
+20,Tropical Sunrise,Coastline Band,reggae,carefree,0.62,85,0.82,0.77,0.58

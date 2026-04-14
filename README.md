@@ -29,6 +29,54 @@ Some prompts to answer:
 
 You can include a simple diagram or bullet list if helpful.
 
+My recommendation system uses content-based filtering. It recommeneds songs based soley on how similar they are to a song the user already loves. So unlike Spotify or Youtube music, this simulation does not use date from other uses (collaboritive filtering) or contextual signals like time of day. Instead it focuses entirely on the music al attributes of each track. I decided on this system based on how easier it would be compared to implimenting other filtering. 
+
+
+| Feature        | Type         | What It Means                                                |
+| -------------- | ------------ | ------------------------------------------------------------ |
+| `genre`        | Category     | The musical style (pop, rock, lofi, synthwave, metal, etc.)  |
+| `mood`         | Category     | The emotional feel (happy, chill, intense, moody, sad, etc.) |
+| `energy`       | Number (0-1) | How intense and active the song sounds                       |
+| `tempo_bpm`    | Number       | Beats per minute — the speed of the song                     |
+| `danceability` | Number (0-1) | How suitable the song is for dancing                         |
+
+*Note: The dataset also includes `valence` and `acousticness`, but I chose not to use them to keep the system simple and focused.*
+
+A `UserProfile` stores the musical preferences of a listener. For this simulation, a profile is created from a **seed song** — a track the user already loves:
+
+```python
+user_profile = {
+    "favorite_genre": "synthwave",     # from seed song
+    "favorite_mood": "moody",          # from seed song
+    "target_energy": 0.72,             # from seed song
+    "target_tempo": 108,               # from seed song (BPM)
+    "target_danceability": 0.70        # from seed song
+}
+```
+```
+The recommender uses a weighted additive formula. Every song gets a score between 0 and 1:
+
+Score = (genre_match × 0.30) + (mood_match × 0.25) 
+      + (energy_similarity × 0.20) 
+      + (tempo_similarity × 0.15) 
+      + (danceability_similarity × 0.10)
+
+For energy, tempo, and danceability, similarity is calculated as:
+
+`similarity = 1 - (|target_value - song_value| ÷ feature_range)`
+
+The **feature_range** is the difference between the maximum and minimum values in the dataset (e.g., energy ranges from 0.18 to 0.95, so range = 0.77).
+
+After every song in the dataset gets a score, the recommender:
+
+- Sorts all songs by score from highest to lowest
+
+- Filters out the seed song itself (can't recommend what they already love)
+
+- Returns the top K recommendations (default K = 5)
+
+
+
 ---
 
 ## Getting Started
