@@ -53,7 +53,7 @@ user_profile = {
     "target_danceability": 0.70        # from seed song
 }
 ```
-```
+
 The recommender uses a weighted additive formula. Every song gets a score between 0 and 1:
 
 Score = (genre_match × 0.30) + (mood_match × 0.25) 
@@ -89,6 +89,7 @@ After every song in the dataset gets a score, the recommender:
    python -m venv .venv
    source .venv/bin/activate      # Mac or Linux
    .venv\Scripts\activate         # Windows
+   ```
 
 2. Install dependencies
 
